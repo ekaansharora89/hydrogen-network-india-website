@@ -76,8 +76,7 @@ export default function Contact() {
                 <Mail className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Email Us</h3>
-              <p className="text-gray-600">info@h2ni.in</p>
-              <p className="text-gray-600">support@h2ni.in</p>
+              <p className="text-gray-600">info@h2network.in</p>
             </div>
 
             <div className="p-6 bg-gradient-to-br from-green-50 to-white rounded-3xl border border-green-100">
@@ -85,8 +84,7 @@ export default function Contact() {
                 <Phone className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Call Us</h3>
-              <p className="text-gray-600">+91 98765 43210</p>
-              <p className="text-gray-600">+91 98765 43211</p>
+              <p className="text-gray-600">+91 79826 04147</p>
             </div>
 
             <div className="p-6 bg-gradient-to-br from-orange-50 to-white rounded-3xl border border-orange-100">
@@ -96,8 +94,8 @@ export default function Contact() {
               <h3 className="text-xl font-bold text-gray-900 mb-2">Visit Us</h3>
               <p className="text-gray-600">
                 Hydrogen Network India<br />
-                Technology Park, Bangalore<br />
-                Karnataka, India - 560001
+                <br />
+                Mumbai, India
               </p>
             </div>
           </div>
