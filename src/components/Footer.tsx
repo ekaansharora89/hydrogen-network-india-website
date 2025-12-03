@@ -28,9 +28,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xl border-4 border-orange-400">
-                H<span className="text-sm">2</span>
-              </div>
+              <img
+                src="/Hydrogen Network India (10)-Photoroom.png"
+                alt="H2NI Logo"
+                className="w-12 h-12 object-contain"
+              />
               <div>
                 <div className="font-bold text-xl text-white">Hydrogen Network India</div>
                 <div className="text-xs text-gray-400">Industrial Training. Technology. Consulting.</div>
