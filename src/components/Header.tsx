@@ -23,7 +23,7 @@ export default function Header() {
             </div>
             <div>
               <div className="font-bold text-xl text-gray-900">Hydrogen Network India<</div>
-              <div className="text-xs text-gray-600">Industrial Training. Technology. Consulting.</div>
+              <div className="text-xs text-gray-600">Industrial Training. </div>
             </div>
           </div>
 
