@@ -94,7 +94,6 @@ export default function Contact() {
               <h3 className="text-xl font-bold text-gray-900 mb-2">Visit Us</h3>
               <p className="text-gray-600">
                 Hydrogen Network India<br />
-                <br />
                 Mumbai, India
               </p>
             </div>
