@@ -1,5 +1,6 @@
 import Header from './components/Header';
 import Hero from './components/Hero';
+import StatsBanner from './components/StatsBanner';
 import Services from './components/Services';
 import EnergySystems from './components/EnergySystems';
 import Resources from './components/Resources';
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <StatsBanner />
         <Services />
         <EnergySystems />
         <Resources />
