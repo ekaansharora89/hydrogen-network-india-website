@@ -25,7 +25,7 @@ export default function Header() {
             />
             <div>
               <div className="font-bold text-xl text-white">Hydrogen Network India</div>
-              <div className="text-xs text-blue-100">Industrail Training. Technology. Consulting.</div>
+              <div className="text-xs text-blue-100">Industrial Training. Technology. Consulting.</div>
             </div>
           </div>
 
