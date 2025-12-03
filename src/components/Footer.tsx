@@ -32,7 +32,7 @@ export default function Footer() {
                 H<span className="text-sm">2</span>
               </div>
               <div>
-                <div className="font-bold text-xl text-white">H2NI</div>
+                <div className="font-bold text-xl text-white">Hydrogen Network India</div>
                 <div className="text-xs text-gray-400">Hydrogen Network India</div>
               </div>
             </div>
