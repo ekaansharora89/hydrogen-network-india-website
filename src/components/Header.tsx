@@ -22,7 +22,7 @@ export default function Header() {
               H<span className="text-sm">2</span>
             </div>
             <div>
-              <div className="font-bold text-xl text-gray-900">Hydrogen</div>
+              <div className="font-bold text-xl text-gray-900">Hydrogen Network India</div>
               <div className="text-xs text-gray-600">Hydrogen Network India</div>
             </div>
           </div>
