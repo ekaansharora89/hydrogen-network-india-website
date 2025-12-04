@@ -9,15 +9,23 @@ import Blog from './components/Blog';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ConsultingPage from './components/ConsultingPage';
+import EducationalProducts from './components/EducationalProducts';
+import ProductDetail from './components/ProductDetail';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
+  const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
 
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.slice(1);
-      if (hash === 'consulting') {
+      if (hash.startsWith('product/')) {
+        setCurrentPage('product-detail');
+        setSelectedProduct(hash.split('/')[1]);
+      } else if (hash === 'consulting') {
         setCurrentPage('consulting');
+      } else if (hash === 'educational-products') {
+        setCurrentPage('educational-products');
       } else {
         setCurrentPage('home');
       }
@@ -35,6 +43,30 @@ function App() {
         <Header />
         <main>
           <ConsultingPage />
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (currentPage === 'educational-products') {
+    return (
+      <div className="min-h-screen bg-white">
+        <Header />
+        <main>
+          <EducationalProducts />
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (currentPage === 'product-detail' && selectedProduct) {
+    return (
+      <div className="min-h-screen bg-white">
+        <Header />
+        <main>
+          <ProductDetail productId={selectedProduct} />
         </main>
         <Footer />
       </div>
