@@ -11,6 +11,9 @@ import Footer from './components/Footer';
 import ConsultingPage from './components/ConsultingPage';
 import EducationalProducts from './components/EducationalProducts';
 import ProductDetail from './components/ProductDetail';
+import Products from './components/Products';
+import DroneProduct from './components/DroneProduct';
+import NanogridProduct from './components/NanogridProduct';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -20,8 +23,11 @@ function App() {
     const handleHashChange = () => {
       const hash = window.location.hash.slice(1);
       if (hash.startsWith('product/')) {
+        const productId = hash.split('/')[1];
         setCurrentPage('product-detail');
-        setSelectedProduct(hash.split('/')[1]);
+        setSelectedProduct(productId);
+      } else if (hash === 'products') {
+        setCurrentPage('products');
       } else if (hash === 'consulting') {
         setCurrentPage('consulting');
       } else if (hash === 'educational-products') {
@@ -61,12 +67,33 @@ function App() {
     );
   }
 
-  if (currentPage === 'product-detail' && selectedProduct) {
+  if (currentPage === 'products') {
     return (
       <div className="min-h-screen bg-white">
         <Header />
         <main>
-          <ProductDetail productId={selectedProduct} />
+          <Products />
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (currentPage === 'product-detail' && selectedProduct) {
+    let productComponent;
+    if (selectedProduct === 'drones') {
+      productComponent = <DroneProduct />;
+    } else if (selectedProduct === 'nanogrids') {
+      productComponent = <NanogridProduct />;
+    } else {
+      productComponent = <ProductDetail productId={selectedProduct} />;
+    }
+
+    return (
+      <div className="min-h-screen bg-white">
+        <Header />
+        <main>
+          {productComponent}
         </main>
         <Footer />
       </div>
