@@ -137,7 +137,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
-                  placeholder="John Doe"
+                  placeholder="Babbu Maan"
                   disabled={isSubmitting}
                 />
               </div>
@@ -154,7 +154,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
-                  placeholder="john@example.com"
+                  placeholder="BabbuMann@example.com"
                   disabled={isSubmitting}
                 />
               </div>
@@ -187,7 +187,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all resize-none"
-                  placeholder="Tell us about your project or inquiry..."
+                  placeholder="You have won two free tickets to Babbu Maan's concert..."
                   disabled={isSubmitting}
                 ></textarea>
               </div>
