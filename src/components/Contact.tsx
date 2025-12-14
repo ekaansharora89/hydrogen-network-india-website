@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, Loader2, Linkedin } from 'lucide-react';
 
 interface FormData {
   name: string;
@@ -228,6 +228,7 @@ export default function Contact() {
           </div>
 
           <div className="space-y-8">
+            {/* Email */}
             <div className="p-6 bg-gradient-to-br from-blue-50 to-white rounded-3xl border border-blue-100">
               <div className="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center mb-4">
                 <Mail className="w-7 h-7 text-white" />
@@ -235,7 +236,26 @@ export default function Contact() {
               <h3 className="text-xl font-bold text-gray-900 mb-2">Email Us</h3>
               <p className="text-gray-600">info@h2network.in</p>
             </div>
-
+          
+            {/* LinkedIn */}
+            <div className="p-6 bg-gradient-to-br from-sky-50 to-white rounded-3xl border border-sky-100">
+              <div className="w-14 h-14 bg-sky-600 rounded-2xl flex items-center justify-center mb-4">
+                <Linkedin className="w-7 h-7 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Connect on LinkedIn</h3>
+              <p className="text-gray-600">
+                <a
+                  href="https://www.linkedin.com/company/hydrogen-network-india/posts/?feedView=all"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sky-700 font-semibold hover:underline"
+                >
+                  linkedin.com/company/hydrogen-network-india
+                </a>
+              </p>
+            </div>
+          
+            {/* Phone */}
             <div className="p-6 bg-gradient-to-br from-green-50 to-white rounded-3xl border border-green-100">
               <div className="w-14 h-14 bg-green-600 rounded-2xl flex items-center justify-center mb-4">
                 <Phone className="w-7 h-7 text-white" />
@@ -243,15 +263,15 @@ export default function Contact() {
               <h3 className="text-xl font-bold text-gray-900 mb-2">Call Us</h3>
               <p className="text-gray-600">+91 79826 04147</p>
             </div>
-
+          
+            {/* Address */}
             <div className="p-6 bg-gradient-to-br from-orange-50 to-white rounded-3xl border border-orange-100">
               <div className="w-14 h-14 bg-orange-500 rounded-2xl flex items-center justify-center mb-4">
                 <MapPin className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Visit Us</h3>
               <p className="text-gray-600">
-                Hydrogen Network India<br />
-                Mumbai, India
+                13-15, Shram Shanti,D-1, Wadala Truck Terminal, Wadala East, Mumbai, India 400037<br/>
               </p>
             </div>
           </div>
