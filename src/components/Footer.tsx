@@ -42,8 +42,13 @@ export default function Footer() {
               Leading India's transition to clean energy through innovative hydrogen solutions and comprehensive training programs.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
-                <Linkedin className="w-5 h-5" />
+              <a
+                  href="https://www.linkedin.com/company/hydrogen-network-india/posts/?feedView=all"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
+                >
+                  <Linkedin className="w-5 h-5" />
               </a>
               <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
                 <Twitter className="w-5 h-5" />
