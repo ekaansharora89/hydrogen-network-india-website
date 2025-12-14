@@ -137,7 +137,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
-                  placeholder="Babbu Maan"
+                  placeholder=""
                   disabled={isSubmitting}
                 />
               </div>
@@ -154,7 +154,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
-                  placeholder="BabbuMann@example.com"
+                  placeholder="name@email.com"
                   disabled={isSubmitting}
                 />
               </div>
@@ -170,7 +170,7 @@ export default function Contact() {
                   value={formData.phone}
                   onChange={handleChange}
                   className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
-                  placeholder="+91 98765 43210"
+                  placeholder="Include country code - example: (+91)..."
                   disabled={isSubmitting}
                 />
               </div>
@@ -187,7 +187,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all resize-none"
-                  placeholder="You have won two free tickets to Babbu Maan's concert..."
+                  placeholder="Enter a short description about your inquiry here..."
                   disabled={isSubmitting}
                 ></textarea>
               </div>
