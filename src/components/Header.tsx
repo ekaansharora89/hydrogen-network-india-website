@@ -34,6 +34,7 @@ export default function Header() {
 
   const educationDropdownItems = [
     { label: 'Educational Products', href: '#educational-products' },
+    { label: 'Educational Hands-On Training', href: '#educational-training' },
   ];
 
   return (

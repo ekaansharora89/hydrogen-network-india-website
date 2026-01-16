@@ -10,6 +10,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ConsultingPage from './components/ConsultingPage';
 import EducationalProducts from './components/EducationalProducts';
+import EducationalTraining from './components/EducationalTraining';
 import ProductDetail from './components/ProductDetail';
 import Products from './components/Products';
 import DroneProduct from './components/DroneProduct';
@@ -32,6 +33,8 @@ function App() {
         setCurrentPage('consulting');
       } else if (hash === 'educational-products') {
         setCurrentPage('educational-products');
+      } else if (hash === 'educational-training') {
+        setCurrentPage('educational-training');
       } else {
         setCurrentPage('home');
       }
@@ -66,6 +69,18 @@ function App() {
         <Header />
         <main>
           <EducationalProducts />
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (currentPage === 'educational-training') {
+    return (
+      <div className="min-h-screen bg-white">
+        <Header />
+        <main>
+          <EducationalTraining />
         </main>
         <Footer />
       </div>
