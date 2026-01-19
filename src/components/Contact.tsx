@@ -234,7 +234,7 @@ export default function Contact() {
                 <Mail className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Email Us</h3>
-              <p className="text-gray-600">info@h2network.in</p>
+              <p className="text-gray-600">admin@h2network.in</p>
             </div>
           
             {/* LinkedIn */}

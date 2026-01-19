@@ -400,7 +400,13 @@ export default function EducationalTraining() {
           </p>
           <button
             onClick={() => {
-              window.location.hash = '#contact';
+              window.location.hash = '#';
+              setTimeout(() => {
+                const contactElement = document.getElementById('contact');
+                if (contactElement) {
+                  contactElement.scrollIntoView({ behavior: 'smooth' });
+                }
+              }, 100);
             }}
             className="inline-flex items-center px-10 py-4 bg-white text-blue-600 font-semibold rounded-full hover:shadow-2xl hover:bg-gray-50 transition-all duration-300 text-lg"
           >
