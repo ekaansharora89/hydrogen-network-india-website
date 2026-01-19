@@ -1,4 +1,4 @@
-import { GraduationCap, FlaskConical, Users, CheckCircle, BookOpen, Award, Clock, Microscope, Zap, Droplets } from 'lucide-react';
+import { GraduationCap, FlaskConical, Users, CheckCircle, BookOpen, Award, Clock, Microscope, Zap, Droplets, Download } from 'lucide-react';
 
 export default function EducationalTraining() {
   const workshopFormats = [
@@ -347,6 +347,43 @@ export default function EducationalTraining() {
         </div>
       </section>
 
+      {/* Pamphlet Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-gradient-to-r from-blue-50 to-cyan-50 p-10 rounded-3xl border border-blue-200">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+              <div className="flex-1">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Workshop Pamphlet
+                </h3>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Interested in learning more about our hydrogen education and hands-on workshop programmes?
+                </p>
+                <p className="text-gray-600 mt-3 leading-relaxed">
+                  Our detailed pamphlet provides an overview of workshop formats, technical coverage, experimental scope, and delivery options.
+                </p>
+              </div>
+              <div className="flex-shrink-0">
+                <button
+                  onClick={() => {
+                    const link = document.createElement('a');
+                    link.href = '/workshop-pamphlet.pdf';
+                    link.download = 'Hydrogen-Workshop-Pamphlet.pdf';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  }}
+                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300 whitespace-nowrap"
+                >
+                  <Download className="w-5 h-5 mr-3" />
+                  Download Pamphlet
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-cyan-600 via-blue-600 to-blue-700 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -361,13 +398,15 @@ export default function EducationalTraining() {
           <p className="text-xl text-blue-100 mb-10 leading-relaxed">
             Hydrogen Network India's workshops are designed to build sustainable hydrogen education and research capability, not just deliver one-time training sessions. Through hands-on experimentation and structured learning, institutions can prepare students and professionals for careers in the rapidly evolving hydrogen ecosystem.
           </p>
-          <a
-            href="#contact"
+          <button
+            onClick={() => {
+              window.location.hash = '#contact';
+            }}
             className="inline-flex items-center px-10 py-4 bg-white text-blue-600 font-semibold rounded-full hover:shadow-2xl hover:bg-gray-50 transition-all duration-300 text-lg"
           >
             Contact Us for a Custom Workshop
             <FlaskConical className="ml-3 w-5 h-5" />
-          </a>
+          </button>
         </div>
       </section>
     </div>
