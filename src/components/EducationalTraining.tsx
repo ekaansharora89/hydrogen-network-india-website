@@ -1,6 +1,8 @@
-import { GraduationCap, FlaskConical, Users, CheckCircle, BookOpen, Award, Clock, Microscope, Zap, Droplets, Download } from 'lucide-react';
+import { useState, useCallback } from 'react';
+import { GraduationCap, FlaskConical, Users, CheckCircle, BookOpen, Award, Clock, Microscope, Zap, Droplets, Download, Loader2 } from 'lucide-react';
 
 export default function EducationalTraining() {
+  const [isDownloading, setIsDownloading] = useState(false);
   const workshopFormats = [
     {
       title: '1-Day Workshop',
@@ -83,6 +85,42 @@ export default function EducationalTraining() {
     { label: 'Faculty members and technical staff', icon: Users },
     { label: 'Industry professionals and workforce training programmes', icon: Award },
   ];
+
+  const handleDownloadPamphlet = useCallback(async () => {
+    if (isDownloading) return;
+
+    setIsDownloading(true);
+    const pdfPath = '/hydrogen_network_india_workshop_program_flyer.pdf';
+    const fileName = 'Hydrogen-Workshop-Pamphlet.pdf';
+
+    try {
+      // Fetch the PDF file as a blob
+      const response = await fetch(pdfPath);
+      
+      if (!response.ok) {
+        throw new Error(`Failed to download: ${response.statusText}`);
+      }
+
+      const blob = await response.blob();
+      
+      // Create a blob URL and trigger download
+      const blobUrl = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = fileName;
+      document.body.appendChild(link);
+      link.click();
+      
+      // Clean up: remove link and revoke blob URL to prevent memory leaks
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(blobUrl);
+    } catch (error) {
+      console.error('Error downloading pamphlet:', error);
+      alert('Failed to download the pamphlet. Please try again later.');
+    } finally {
+      setIsDownloading(false);
+    }
+  }, [isDownloading]);
 
   return (
     <div className="pt-20">
@@ -365,18 +403,21 @@ export default function EducationalTraining() {
               </div>
               <div className="flex-shrink-0">
                 <button
-                  onClick={() => {
-                    const link = document.createElement('a');
-                    link.href = '/workshop-pamphlet.pdf';
-                    link.download = 'Hydrogen-Workshop-Pamphlet.pdf';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                  }}
-                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300 whitespace-nowrap"
+                  onClick={handleDownloadPamphlet}
+                  disabled={isDownloading}
+                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300 whitespace-nowrap disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
-                  <Download className="w-5 h-5 mr-3" />
-                  Download Pamphlet
+                  {isDownloading ? (
+                    <>
+                      <Loader2 className="w-5 h-5 mr-3 animate-spin" />
+                      Downloading...
+                    </>
+                  ) : (
+                    <>
+                      <Download className="w-5 h-5 mr-3" />
+                      Download Pamphlet
+                    </>
+                  )}
                 </button>
               </div>
             </div>
