@@ -1,4 +1,4 @@
-import { Zap, Cpu, Wrench, TrendingUp, CheckCircle, Users, Clock, Award } from 'lucide-react';
+import { Zap, Cpu, Wrench, TrendingUp, Users, Clock, Award } from 'lucide-react';
 
 export default function ConsultingPage() {
   const services = [

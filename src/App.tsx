@@ -15,6 +15,7 @@ import ProductDetail from './components/ProductDetail';
 import Products from './components/Products';
 import DroneProduct from './components/DroneProduct';
 import NanogridProduct from './components/NanogridProduct';
+import BlogPage from './components/BlogPage';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -35,6 +36,8 @@ function App() {
         setCurrentPage('educational-products');
       } else if (hash === 'educational-training') {
         setCurrentPage('educational-training');
+      } else if (hash === 'blog') {
+        setCurrentPage('blog');
       } else {
         setCurrentPage('home');
       }
@@ -50,6 +53,18 @@ function App() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [currentPage, selectedProduct]);
+
+  if (currentPage === 'blog') {
+    return (
+      <div className="min-h-screen bg-white">
+        <Header />
+        <main>
+          <BlogPage />
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   if (currentPage === 'consulting') {
     return (
