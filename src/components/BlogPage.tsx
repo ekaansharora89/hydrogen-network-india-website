@@ -3,6 +3,14 @@ import { Calendar, ArrowRight, ArrowLeft } from 'lucide-react';
 export default function BlogPage() {
   const posts = [
     {
+      title: 'Why India\'s Electrolysis Plants Run on Alkaline — Not PEM',
+      excerpt: 'A detailed cost breakdown, technology comparison, and the strategic logic behind India\'s ₹1.85 lakh crore green hydrogen bet. Discover why alkaline electrolyzers are winning on nearly every major project across the country despite PEM\'s technological appeal.',
+      date: 'Feb 21, 2025',
+      category: 'Industry Insights',
+      image: '/AEL_VS_PEM.png',
+      url: '/alkaline_vs_pem_india.html',
+    },
+    {
       title: 'Advanced Simulation Tools in the Green Hydrogen Economy: Optimizing Plant Operation & Fast-Tracking R&D',
       excerpt: 'Simulation tools—spanning multiphysics CFD, process modelling, 1D system simulation, and full plant digital twins—now sit at the heart of successful hydrogen projects globally. Their impact is most visible across two domains: electrolyzer operations and fuel-cell system design.',
       date: 'Dec 5, 2025',
@@ -65,7 +73,13 @@ export default function BlogPage() {
               <article
                 key={index}
                 className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group cursor-pointer border border-gray-100"
-                onClick={() => window.open(post.url, '_blank')}
+                onClick={() => {
+                  if (post.url.startsWith('/')) {
+                    window.location.href = post.url;
+                  } else {
+                    window.open(post.url, '_blank');
+                  }
+                }}
               >
                 <div className="aspect-[16/10] overflow-hidden">
                   <img
