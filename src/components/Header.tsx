@@ -3,14 +3,12 @@ import { useState } from 'react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isEducationDropdownOpen, setIsEducationDropdownOpen] = useState(false);
   const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false);
   const [hoveredProduct, setHoveredProduct] = useState<string | null>(null);
 
   const navItems = [
     { label: 'Home', href: '#home' },
     { label: 'Products', href: null, dropdown: true },
-    { label: 'Education', href: null, dropdown: true },
     { label: 'Consulting', href: '#consulting' },
     { label: 'Resources', href: '#resources' },
     { label: 'Blog', href: '#blog' },
@@ -30,11 +28,18 @@ export default function Header() {
       summary: 'On-demand clean energy for 24×7 uptime with modular PV + BESS + fuel cell.',
       thumbnail: '/microgrid.png',
     },
-  ];
-
-  const educationDropdownItems = [
-    { label: 'Educational Products', href: '#educational-products' },
-    { label: 'Educational Hands-On Training', href: '#educational-training' },
+    {
+      label: 'Educational Products',
+      href: '#educational-products',
+      summary: 'Hands-on hydrogen lab systems and demonstration kits for universities and R&D labs.',
+      thumbnail: '/Electrolyzer kit.png',
+    },
+    {
+      label: 'Educational Hands-On Training',
+      href: '#educational-training',
+      summary: 'Bridge theory and practice with real hydrogen systems and industry-relevant testing.',
+      thumbnail: '/H2 fuel cell kit.png',
+    },
   ];
 
   return (
@@ -61,49 +66,35 @@ export default function Header() {
                     <span>{item.label}</span>
                     <ChevronDown size={16} />
                   </button>
-                  {item.label === 'Products' ? (
-                    <div className="absolute left-0 mt-0 w-96 bg-white text-gray-800 rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                      {productsDropdownItems.map((dropItem) => (
-                        <a
-                          key={dropItem.label}
-                          href={dropItem.href}
-                          className="block group/item hover:bg-blue-50 first:rounded-t-md last:rounded-b-md transition-colors duration-200 relative"
-                          onMouseEnter={() => setHoveredProduct(dropItem.label)}
-                          onMouseLeave={() => setHoveredProduct(null)}
-                        >
-                          <div className="px-4 py-3">
-                            <div className="font-semibold text-gray-900 text-sm">{dropItem.label}</div>
-                          </div>
-                          {hoveredProduct === dropItem.label && (
-                            <div className="absolute left-full top-0 ml-2 w-80 bg-white rounded-md shadow-xl border border-gray-200 opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-200">
-                              <div className="flex gap-3 p-3">
-                                <img
-                                  src={dropItem.thumbnail}
-                                  alt={dropItem.label}
-                                  className="w-40 h-24 object-cover rounded-md flex-shrink-0"
-                                />
-                                <div className="flex-1">
-                                  <p className="text-sm text-gray-700 line-clamp-2">{dropItem.summary}</p>
-                                </div>
+                  <div className="absolute left-0 mt-0 w-96 bg-white text-gray-800 rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    {productsDropdownItems.map((dropItem) => (
+                      <a
+                        key={dropItem.label}
+                        href={dropItem.href}
+                        className="block group/item hover:bg-blue-50 first:rounded-t-md last:rounded-b-md transition-colors duration-200 relative"
+                        onMouseEnter={() => setHoveredProduct(dropItem.label)}
+                        onMouseLeave={() => setHoveredProduct(null)}
+                      >
+                        <div className="px-4 py-3">
+                          <div className="font-semibold text-gray-900 text-sm">{dropItem.label}</div>
+                        </div>
+                        {hoveredProduct === dropItem.label && (
+                          <div className="absolute left-full top-0 ml-2 w-80 bg-white rounded-md shadow-xl border border-gray-200 opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-200">
+                            <div className="flex gap-3 p-3">
+                              <img
+                                src={dropItem.thumbnail}
+                                alt={dropItem.label}
+                                className="w-40 h-24 object-cover rounded-md flex-shrink-0"
+                              />
+                              <div className="flex-1">
+                                <p className="text-sm text-gray-700 line-clamp-2">{dropItem.summary}</p>
                               </div>
                             </div>
-                          )}
-                        </a>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="absolute left-0 mt-0 w-48 bg-white text-gray-800 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                      {educationDropdownItems.map((dropItem) => (
-                        <a
-                          key={dropItem.label}
-                          href={dropItem.href}
-                          className="block px-4 py-3 hover:bg-blue-50 first:rounded-t-md last:rounded-b-md transition-colors duration-200"
-                        >
-                          {dropItem.label}
-                        </a>
-                      ))}
-                    </div>
-                  )}
+                          </div>
+                        )}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               ) : (
                 <a
@@ -133,69 +124,39 @@ export default function Header() {
               item.dropdown ? (
                 <div key={item.label}>
                   <button
-                    onClick={() => {
-                      if (item.label === 'Products') {
-                        setIsProductsDropdownOpen(!isProductsDropdownOpen);
-                      } else {
-                        setIsEducationDropdownOpen(!isEducationDropdownOpen);
-                      }
-                    }}
+                    onClick={() => setIsProductsDropdownOpen(!isProductsDropdownOpen)}
                     className="w-full text-left py-2 text-white hover:text-blue-200 font-medium transition-colors duration-200 flex items-center justify-between"
                   >
                     <span>{item.label}</span>
                     <ChevronDown
                       size={16}
                       className={`transform transition-transform ${
-                        item.label === 'Products'
-                          ? isProductsDropdownOpen
-                            ? 'rotate-180'
-                            : ''
-                          : isEducationDropdownOpen
-                            ? 'rotate-180'
-                            : ''
+                        isProductsDropdownOpen ? 'rotate-180' : ''
                       }`}
                     />
                   </button>
-                  {item.label === 'Products' ? (
-                    isProductsDropdownOpen && (
-                      <div className="pl-4 space-y-3 mt-2">
-                        {productsDropdownItems.map((dropItem) => (
-                          <a
-                            key={dropItem.label}
-                            href={dropItem.href}
-                            className="block py-2 text-blue-100 hover:text-white transition-colors duration-200"
-                            onClick={() => {
-                              setIsMenuOpen(false);
-                              setIsProductsDropdownOpen(false);
-                            }}
-                          >
-                            <div className="font-semibold text-sm">{dropItem.label}</div>
-                            <img
-                              src={dropItem.thumbnail}
-                              alt={dropItem.label}
-                              className="w-full h-20 object-cover rounded-md mt-2"
-                            />
-                          </a>
-                        ))}
-                      </div>
-                    )
-                  ) : isEducationDropdownOpen ? (
-                    <div className="pl-4 space-y-2 mt-2">
-                      {educationDropdownItems.map((dropItem) => (
+                  {isProductsDropdownOpen && (
+                    <div className="pl-4 space-y-3 mt-2">
+                      {productsDropdownItems.map((dropItem) => (
                         <a
                           key={dropItem.label}
                           href={dropItem.href}
                           className="block py-2 text-blue-100 hover:text-white transition-colors duration-200"
                           onClick={() => {
                             setIsMenuOpen(false);
-                            setIsEducationDropdownOpen(false);
+                            setIsProductsDropdownOpen(false);
                           }}
                         >
-                          {dropItem.label}
+                          <div className="font-semibold text-sm">{dropItem.label}</div>
+                          <img
+                            src={dropItem.thumbnail}
+                            alt={dropItem.label}
+                            className="w-full h-20 object-cover rounded-md mt-2"
+                          />
                         </a>
                       ))}
                     </div>
-                  ) : null}
+                  )}
                 </div>
               ) : (
                 <a
