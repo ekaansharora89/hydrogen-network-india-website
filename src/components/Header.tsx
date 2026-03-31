@@ -9,6 +9,7 @@ export default function Header() {
   const navItems = [
     { label: 'Home', href: '#home' },
     { label: 'Products', href: null, dropdown: true },
+    { label: 'Training', href: '#educational-training' },
     { label: 'Consulting', href: '#consulting' },
     { label: 'Resources', href: '#resources' },
     { label: 'Blog', href: '#blog' },
@@ -33,12 +34,6 @@ export default function Header() {
       href: '#educational-products',
       summary: 'Hands-on hydrogen lab systems and demonstration kits for universities and R&D labs.',
       thumbnail: '/Electrolyzer kit.png',
-    },
-    {
-      label: 'Educational Hands-On Training',
-      href: '#educational-training',
-      summary: 'Bridge theory and practice with real hydrogen systems and industry-relevant testing.',
-      thumbnail: '/H2 fuel cell kit.png',
     },
   ];
 
