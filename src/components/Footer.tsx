@@ -107,7 +107,7 @@ export default function Footer() {
         <div className="pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm">
-              © 2025 DEX Systems LLP All rights reserved.
+              Copyright © 2026 DEX Systems LLP. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
